@@ -29,6 +29,7 @@ The script has 6 option:
 5. `Configure Vim ` - It will install Vim and configure basic .vimrc(See [vimrc](vimrc) file) No plugin.
 6. `Exit` - Exit the script.
 
+[.bashrc](bashrc) ---> Here my .bashrc configuration
 
 ## Authors
 
