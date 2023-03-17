@@ -29,7 +29,7 @@ conf_vim(){
     nl;
     echo -e "Installing VIM [...]";
     sudo apt update -y && sudo apt install vim vim-motif vim-gtk3 -y &&
-    mkdir ~/.vim && cp ~/ezi_custom/vimrc ~/.vim/.vimrc && echo -e "Configuration Done [+]"
+    cp ~/ezi_custom/vimrc ~/.vimrc && nl && echo -e "Configuration Done [+]"
 }
 
 # Change Default Shell
@@ -45,7 +45,7 @@ ch_defshell(){
     echo -e "Now, the next time you'll login your default shell should be changed. Do you want to restart the system now?[y/n]: \c"
     read restart
     if [$restart == "y" ]; then
-        sudo init 6
+        init 6
     elif [$restart == "n" ]; then
         ret_menu
     fi
