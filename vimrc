@@ -44,5 +44,4 @@ map <S-Insert> <C-i>
 " Copy selected text to system clipboard (requires gvim/nvim/vim-x11 installed
 vnoremap <C-c> "+y
 map <C-p> "+P 
-" Automatically deletes all trailing whitespace on save
-autocmd BufWritePre * %s/\s\$//e
+
