@@ -44,9 +44,9 @@ ch_defshell(){
     sudo chsh -s $shell $username && sleep 2;
     echo -e "Now, the next time you'll login your default shell should be changed. Do you want to restart the system now?[y/n]: \c"
     read restart
-    if [$restart == "y" ]; then
+    if [ $restart == "y" ]; then
         init 6
-    elif [$restart == "n" ]; then
+    elif [ $restart == "n" ]; then
         ret_menu
     fi
 }
