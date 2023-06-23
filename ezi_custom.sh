@@ -26,10 +26,33 @@ ex_themes() {
 
 # Configuration VIM and .vimrc
 conf_vim(){
-    nl;
-    echo -e "Installing VIM [...]";
-    sudo apt update -y && sudo apt install vim vim-motif vim-gtk3 -y &&
-    cp ~/ezi_custom/vimrc ~/.vimrc && nl && echo -e "Configuration Done [+]"
+    echo -e "[!] Updating the System ..."
+    echo
+    sudo apt update -y && echo &&
+    clear && sleep 3
+    echo -e "[+] Installing Vim Editor ..."
+    sudo apt install vim vim-motif vim-gtk3 -y
+    sleep 3 && clear
+    echo "[!] Cloning some repository from Github to install some Plugins" &&
+    # Vundle - Plugin Manager
+    cd ~/ && git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim &&
+    # Ale - Plugin providing linting (syntax checking and semantic errors) in NeoVim 0.2.0+ and Vim 8.0+ while you edit your text file
+    cd ~/ && git clone https://github.com/dense-analysis/ale ~/.vim/bundle/ale &&
+    # Flake8 - A static syntax and style checker for Python source code
+    sudo apt install python3-flake8 && pip install flake8 &&
+    cd ~/ && git clone https://github.com/nvie/vim-flake8.git ~/.vim/bundle/vim-flake8 && cd ~/ezi_custom/ &&
+    cp flake8 ~/ && mv ~/flake8 ~/.flake8 &&
+    # vim-airline - Lean & mean status/tabline for vim that's light as air.
+    cd ~/ && git clone https://github.com/vim-airline/vim-airline ~/.vim/bundle/vim-airline &&
+    # Importing colors
+    cd ~/ && git clone https://github.com/dracula/vim.git ~/.vim/bundle/vim &&
+    cd ~/ && git clone https://github.com/EdenEast/nightfox.nvim.git ~/.vim/bundle/nightfox.nvim &&
+    cp -R ~/ezi_custom/colors/ ~/.vim/ &&
+    # Importing vimrc
+    cp -R ~/ezi_custom/vimrc . && mv vimrc .vimrc && 
+    # Installing all the Plugin via Terminal
+    vim +PluginInstall +qall &&
+    echo "[+] Configuration Done ! Run: source .vimrc "
 }
 
 # Change Default Shell
@@ -72,18 +95,19 @@ inst_btools(){
 # Banner
 banner(){
      nl;
-   echo "+------------------------------------------+"
-   printf "| %-40s |\n" "`date`"
-   echo "|                                          |"
-   echo -e "| \033[1;32;40mEasy-Custom\033[m   "
-   echo "|                                          |"
-   printf "|`tput bold` %-40s `tput sgr0`|\n" "$@"
-   echo "+------------------------------------------+"
+     echo -e "\e[1;32m
+ _______  _______  ___         _______  __   __  _______  _______  _______  __   __
+|       ||       ||   |       |       ||  | |  ||       ||       ||       ||  |_|  |
+|    ___||____   ||   |       |       ||  | |  ||  _____||_     _||   _   ||       |
+|   |___  ____|  ||   |       |       ||  |_|  || |_____   |   |  |  | |  ||       |
+|    ___|| ______||   |       |      _||       ||_____  |  |   |  |  |_|  ||       |
+|   |___ | |_____ |   | _____ |     |_ |       | _____| |  |   |  |       || ||_|| |
+|_______||_______||___||_____||_______||_______||_______|  |___|  |_______||_|   |_|
+
+\e[0m"
+echo -e "\e[1;34m                              by: github/ic3man31                 \e[0m "
 }
 
-bnr(){
-    banner "Written by: J.Rosales"
-}
 
 slct(){
     nl;
@@ -128,4 +152,4 @@ Please, select an option:"
         esac
     done
 }
-bnr; slct
+banner; slct
