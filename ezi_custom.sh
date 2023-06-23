@@ -83,7 +83,7 @@ upg_sys(){
 
 # Back to Menu
 ret_menu(){
-    sleep 3 && clear && bnr; slct
+    sleep 3 && clear && banner; slct
 }
 
 #Installing Basic Tools 
