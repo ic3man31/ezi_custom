@@ -1,40 +1,65 @@
-# Ezi_Custom
+# Ezi_custom
 
-The aim of this script is to automate the customization of a Kali Virtual Machine with XFCE Desktop Environment.
-It's a very basic script.
+This script is designed to simplify and automate various system configuration tasks. It provides a menu-based interface for performing common system tasks such as upgrading the system, adding new icons and themes, installing basic tools, changing the default shell, and configuring the Vim text editor.
 
-## Requirements
+## Usage
 
-- Oracle VM VirtualBox or VMware
-- This script is designed for a Kali Linux Virtual Machine that has, as Desktop Environment, **XFCE**.
-- The user that is going to run this script must have root privilege.
+1. Clone this repository to your local machine.
 
-## Installation
+`git clone https://github.com/your-username/your-repo.git`
 
-````bash
-git clone https://github.com/ic3man31/ezi_custom.git
-cd ezi_custom/
-chmod +x ezi_custom.sh
-./ezi_custom.sh
-````
+2. Navigate to the directory where the script is located.
 
-## HowTo
+`cd your-repo`
 
-The script has 6 option:
+3. Make the script executable.
 
-1. `Upgrade the System` - It will update and upgrade the System. You must have root privilege.
-2. `Add new Icons and Themes` - It will add icons in /usr/share/icons and themes in /usr/share/themes. To edit icons and themes Settings >> Appearance. You can add new icons & themes from this [site](https://www.xfce-look.org/browse/) and saving it on *ezi_custom/temi* for themes and *ezi_custom/icone*.
-3. `Install some Basic Tools` - It will download tools that you can see on [b_tools](b_tools). You must have sudo privilege and if you want you can add other tools by adding it on the *b_tools* file. 
-4. `Change Default Shell` - Gives the change to change the default shell of the user. 
-5. `Configure Vim ` - It will install Vim and configure basic .vimrc(See [vimrc](vimrc) file) No plugin.
-6. `Exit` - Exit the script.
+`chmod +x custom_config.sh`
 
-[.bashrc](bashrc) ---> Here my .bashrc configuration
+4. Run the script.
 
-## Authors
+`./custom_config.sh`
 
- [J.Rosales](https://it.linkedin.com/in/johnchri-rosales31)
+## Script Functions
 
-## License
+### 1. Upgrade the System
 
-[LICENSE](LICENSE)
+This option upgrades the system by updating packages, upgrading packages, and removing unnecessary packages.
+
+### 2. Add New Icons and Themes
+
+This option allows you to add new icons and themes to your system. The script will extract icons and themes from the specified directories and apply them to your system's settings.
+
+### 3. Install Some Basic Tools
+
+This option installs a list of basic tools. You can customize the list of tools by editing the `b_tools` file.
+
+### 4. Change Default Shell
+
+You can change the default shell for a user using this option. It will prompt you to enter the shell path and the username for which you want to change the default shell.
+
+### 5. Configure Vim
+
+This option automates the configuration of the Vim text editor. It updates the system, installs Vim, and installs various plugins and configurations for Vim, including Vundle, Ale, Flake8, vim-airline, and custom colors and settings.
+
+### 6. Exit
+
+This option exits the script.
+
+## Important Notes
+
+- Make sure you run this script with appropriate permissions, as some operations require superuser privileges (e.g., installing packages).
+- Review and customize the list of basic tools in the `b_tools` file to suit your needs.
+- Before using the script, ensure that you have backed up any important data, as system changes and upgrades can have unexpected consequences.
+- This script was created by github/ic3man31.
+
+## Disclaimer
+
+Use this script at your own risk. While it aims to simplify system configuration tasks, it may not cover all scenarios or distributions. Always ensure you have backups and understand the changes the script will make to your system before running it.
+
+## Credits
+
+
+This script was created by [github.com/ic3man31](https://github.com/ic3man31).
+
+Please feel free to provide any feedback or suggestions for improvement.
